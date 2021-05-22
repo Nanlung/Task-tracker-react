@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <Header title="Task Tracker" />
-      <Tasks tasks={tasks} onDelete={deleteTask}/>
+      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask}/> : <h3>"No Tasks Available"</h3>}
     </div>
   );
 }
