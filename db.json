@@ -11,6 +11,12 @@
       "text": "Community Meeting",
       "day": "Friday, May 7 2021",
       "reminder": true
+    },
+    {
+      "text": "Chess Tournament",
+      "day": "Today",
+      "reminder": true,
+      "id": 3
     }
   ]
 }
