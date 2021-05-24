@@ -4,6 +4,9 @@ import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 
 function App() {
+
+  const [showAddTask, setShowAddTask] = useState(false);
+
   const [tasks, setTasks] = useState(
     [
   {
@@ -17,13 +20,22 @@ function App() {
     text: "Community Meeting",
     day: "Friday, May 7 2021",
     reminder: true
+  },
+  {
+    id: 3,
+    text: "Football Game",
+    day: "Monday, May 24 2021",
+    reminder: false
   }
 ]
 
   )
 
   const addTask = (task) => {
-    console.log(task);
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = {id, ...task}
+    setTasks([...tasks, newTask])
+    
   }
 
   const deleteTask = (id) => {
@@ -38,8 +50,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header title="Task Tracker" />
-      <AddTask onAdd={addTask} />
+      <Header onAdd={() => setShowAddTask(!showAddTask)} title="Task Tracker" />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : <h3>"No Tasks Available"</h3>}
     </div>
   );

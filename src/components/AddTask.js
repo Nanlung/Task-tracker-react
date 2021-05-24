@@ -5,7 +5,7 @@ const AddTask = ({onAdd}) => {
   const [day, setDay] =  useState('')
   const [reminder, setReminder] =  useState(false)
 
-const onSubmit = () => {
+const onSubmit = (e) => {
   e.preventDefault()
 
   if (!text) {
